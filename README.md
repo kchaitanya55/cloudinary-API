@@ -1,7 +1,7 @@
 # CLOUDINARY API
 
 ## Overview
-The API is useful to upload or Fetch Image files to Cloudinary Portal.
+The API is useful to upload or Fetch Image files from Cloudinary Portal.
 
 ## Guidelines for Developer
 
