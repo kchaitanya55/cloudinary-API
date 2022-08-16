@@ -1,28 +1,24 @@
-# WEATHER API
+# CLOUDINARY API
 
 ## Overview
-The API is useful to fetch weather forecast of following 2 days of a selected city.
+The API is useful to upload or Fetch Image files to Cloudinary Portal.
 
 ## Guidelines for Developer
 
 1. Clone this Project
 
-2. Create an Account in OpenWeatherMap.(https://openweathermap.org/guide)
+2. Create an Account in Cloudinary Portal.(https://cloudinary.com/)
 
-3. After Account is created go to Profile-> My API keys and copy the key.
+3. After Account is created Get the Cloud Name, Key and Secret.
 
-4. Replace the key in the below code of File : com.weather.api.configuration.InitialDataSetUp
+4. Replace the key in the below code of File : application.properties
 ```java
-	private static String appID="";
+	cloud.name=
+	cloud.api.key=
+	cloud.api.secret=
 ```
 5. Run the Application as Java Application.
 
 ## Guidelines for User
 
-1.Hit the API using the path "/data" and valid city name. User will be able to see the average day temperature of following 2 days and average night temperature of following 2 days.See the below Example
 
-```java
-	/data?city=delhi
-```
-
-2.If the user send the city which is not available .Error response will be sent to the user.
