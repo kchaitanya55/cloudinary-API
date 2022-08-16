@@ -1,5 +1,6 @@
 package com.cloudinary.api.contoller;
 
+import com.cloudinary.api.exception.util.CustomException;
 import com.cloudinary.api.model.FileDetails;
 import com.cloudinary.api.repositories.FilesRepository;
 import com.cloudinary.api.services.FilesService;
@@ -26,7 +27,7 @@ public class CloudinaryController {
 
 
     @PostMapping("/upload")
-    public ResponseEntity uploadFile(@RequestParam("file") MultipartFile file) throws IOException {
+    public ResponseEntity uploadFile(@RequestParam("file") MultipartFile file) throws IOException, CustomException {
         return filesService.uploadFileToCloudinary(file);
     }
 

@@ -1,6 +1,7 @@
 package com.cloudinary.api.services.impl;
 
 import com.cloudinary.Cloudinary;
+import com.cloudinary.api.exception.util.CustomException;
 import com.cloudinary.api.model.Response;
 import com.cloudinary.api.model.FileDetails;
 import com.cloudinary.api.repositories.FilesRepository;
@@ -11,10 +12,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.util.Arrays;
 import java.util.Map;
 
 @Service
@@ -32,7 +35,11 @@ public class FilesServiceImpl implements FilesService {
     private String apiSecret;
 
     @Override
-    public ResponseEntity uploadFileToCloudinary(MultipartFile file) throws IOException {
+    public ResponseEntity uploadFileToCloudinary(MultipartFile file) throws IOException, CustomException {
+        String extension=StringUtils.getFilenameExtension(file.getOriginalFilename());
+        if (file.isEmpty() || !Arrays.asList("png","jpeg","jpg","gif").contains(extension.toLowerCase())) {
+            throw new CustomException("Please upload Valid and Only Image Files");
+        }
         Map options = ObjectUtils.asMap(
                 "cloud_name", cloudName,
                 "api_key", apiKey,
