@@ -21,7 +21,7 @@ The API is useful to upload or Fetch Image files from Cloudinary Portal.
 
 ## Guidelines for User
 
-##Upload 
+Upload:
 1.To upload a file Hit the Application with below URL as per the below Snippet and it will be uploaded successfully.If there is any error.Error response will be sent accordingly.
 
 ```java
